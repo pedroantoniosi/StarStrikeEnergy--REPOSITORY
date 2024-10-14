@@ -1,0 +1,459 @@
+@import './reset/reset.css', './swiper/swiper.css';
+
+$primaryColor: #fffc00;
+$secondaryColor: #2323ff;
+$accentColor: #F8F8F8;
+$light: #fff;
+$dark: #111;
+
+// ----------------------------------------------------------------------------------------------------------------------------------
+@mixin pseude-before() {
+  position: relative;
+  z-index: 1;
+
+  &::before {
+    content: ' ';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+  }
+}
+
+@mixin zero-banner {
+  color: $dark;
+  background-color: $light;
+}
+
+@mixin beforeElement {
+  position: relative;
+  z-index: 1;
+
+  &::before {
+    content: ' ';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+  }
+}
+
+@font-face {
+  font-family: 'energyFont';
+  src: url('/assets/fonts/Neon-Energy-Italic.ttf') format('truetype'),
+    url('/assets/fonts/Neon-Energy.otf') format('opentype');
+  /* Adicione outros formatos de arquivo, se necessário */
+}
+
+// ----------------------------------------------------------------------------------------------------------------------------------
+.button-49,
+.button-49:after {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: .8rem;
+  width: 150px;
+  font-size: 1rem;
+  background: linear-gradient(45deg, transparent 5%, $primaryColor 5%);
+  border: 0;
+  color: $dark;
+  letter-spacing: 3px;
+  box-shadow: 6px 0px 0px $light;
+  outline: transparent;
+  user-select: none;
+  -webkit-user-select: none;
+  text-align: center;
+  white-space: nowrap;
+  font-family: 'energyFont', sans-serif !important;
+  letter-spacing: 2px;
+}
+
+
+.neon-title {
+  font-family: 'energyFont', sans-serif !important;
+  letter-spacing: 2px;
+}
+
+// ----------------------------------------------------------------------------------------------------------------------------------
+.header {
+  width: 100%;
+  position: fixed;
+  padding: 1rem;
+  z-index: 9;
+
+  &-inner {
+    position: relative;
+    width: 300px;
+    height: 50px;
+    border: .1rem solid $light;
+    border-radius: 20rem;
+    background-color: $dark;
+    transition: all .5s linear;
+
+    &.active {
+      position: absolute;
+      width: 50px;
+      display: flex;
+      justify-content: center;
+      border-radius: 50%;
+      background-color: $dark;
+      top: 1rem;
+      left: 1rem;
+
+      & .logo {
+        display: none;
+      }
+    }
+
+    & .logo {
+      & img {
+        width: 40px;
+      }
+    }
+
+    & .toggle {
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      width: 30px;
+      aspect-ratio: 1/1;
+      border-radius: 50%;
+      background-color: #353535;
+      font-size: 1rem;
+      color: #b2b2b2;
+      box-shadow: rgb(255, 255, 255) 0px 0px 2px 0px;
+      user-select: none;
+    }
+  }
+
+  & .navbar {
+    width: 100%;
+    height: 100svh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: $secondaryColor;
+    overflow: clip;
+    transform: translateX(-100%);
+
+    &.active {
+      transform: translateX(0%);
+    }
+  }
+}
+
+.hero__ct {
+  background-color: $dark;
+  height: 100dvh;
+  @include pseude-before();
+
+  &::before {
+    background-image: url('/assets/img/banner-mob.png');
+    background-position: bottom;
+    background-size: cover;
+    filter: brightness(80%);
+  }
+
+  &--caption {
+    padding: 6rem 2rem 0 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: $light;
+    & .title,
+    .text {
+      letter-spacing: 1px;
+      font-size: 1.8rem;
+      text-transform: uppercase;
+    }
+
+    & .text {
+      font-family: 'energyFont', sans-serif !important;
+      color: $primaryColor;
+      font-size: 3rem;
+    }
+  }
+}
+
+.showcase__ct {
+  background-color: $accentColor;
+
+  & .card {
+    height: 100%;
+
+    & .img-caption {
+      margin: 0 auto;
+      width: 220px;
+    }
+
+    & .caption {
+      padding: 1rem 0;
+      min-height: 200px;
+      position: relative;
+      box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+      background-color: $light;
+
+      & .misc {
+        padding: .2rem .4rem;
+        position: absolute;
+        background-color: $primaryColor;
+        color: $dark;
+        left: 0;
+        bottom: 100%;
+        border-top-right-radius: 1rem;
+        font-weight: bold;
+      }
+
+      & .title {
+        font-size: 1.5rem;
+      }
+
+      & .card-price {
+        position: relative;
+        font-size: 1.5rem;
+        font-weight: 400;
+
+        & .cents {
+          position: absolute;
+          font-size: .8rem;
+        }
+      }
+
+    }
+  }
+}
+
+.zero__ct {
+  background-color: $dark;
+
+  &--caption {
+    color: $light;
+    & .title{
+      font-size: 2rem;
+      letter-spacing: .1rem;
+    }
+  }
+
+  & .btn-rounded {
+    width: fit-content;
+    border-color: $light;
+    font-family: 'energyFont', sans-serif !important;
+   font-size: 2rem;
+  }
+}
+
+.invite__ct {
+  background-color: $dark;
+  height: 80svh;
+  @include pseude-before();
+
+  &::before {
+    background-image: url('/assets/img/subscribe-background.png');
+    background-size: cover;
+  }
+
+  &--caption {
+    & .title {
+      font-size: 3rem;
+    }
+
+    & .text {
+      font-size: 1.2rem;
+    }
+
+    & .btn {
+      width: auto;
+      background: linear-gradient(45deg, transparent 5%, $dark 5%);
+      color: $primaryColor;
+    }
+  }
+}
+
+.events__ct {
+  background-color: $dark;
+  & .card {
+    overflow: clip;
+    & .card__img img{
+      object-fit: cover;
+    }
+
+    & .card__caption {
+      padding: 2rem 1rem;
+      position: relative;
+      @include pseude-before();
+      background-color: $dark;
+      color: $light;
+
+    }
+  }
+}
+
+
+
+.news-container {
+  background-color: $accentColor;
+
+  & .slider-wrapper {
+    padding: 1rem;
+  }
+
+  & .card {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    border-radius: .5rem;
+    overflow: hidden;
+
+    & img {
+      object-fit: cover;
+      aspect-ratio: 4/3;
+    }
+
+    & .card-caption {
+      background-color: $light;
+      @include beforeElement();
+
+      &::before {
+        background: linear-gradient(to right, $secondaryColor 50%, $primaryColor 50%);
+        height: 5px;
+        width: 100%;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, 0%);
+      }
+    }
+  }
+}
+
+// ----------------------------------------------------------------------------------------------------------------------------------
+
+.social-container {
+  background-color: $dark;
+
+  & .title {
+    margin-bottom: 2rem;
+    font-size: 1.7rem;
+    color: $light;
+    background-color: $primaryColor;
+    color: $dark;
+    transform: skew(0deg, -5deg);
+    /* skew along X and Y axes */
+  }
+
+  & img {
+    border-radius: 1rem;
+  }
+
+  & .social-wrapper .nav-link {
+    padding: .2rem .6rem;
+    border-radius: .2rem;
+    background-color: $dark;
+    aspect-ratio: 1/1;
+
+    & a {
+      font-size: 2rem;
+      color: $light;
+    }
+
+  }
+}
+
+// ----------------------------------------------------------------------------------------------------------------------------------
+footer {
+  position: relative;
+  background-color: $dark;
+
+  & .wrapper {
+    position: relative;
+    background-color: $light;
+    color: $dark;
+    border-radius: 1rem;
+
+    @keyframes moveUpDown {
+      0% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-10px);
+      }
+
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+    & .btn-up {
+      display: grid;
+      place-items: center;
+      width: 50px;
+      position: absolute;
+      color: $secondaryColor;
+      font-size: 2rem;
+      top: -30px;
+      left: 40%;
+      transform: translate(-50%, 0%);
+      border-radius: 50%;
+      aspect-ratio: 1/1;
+      border: .1rem solid $light;
+      background-color: $dark;
+      color: $light;
+      user-select: none;
+      animation: moveUpDown 4s ease-in-out infinite;
+      z-index: 999;
+    }
+
+    & .nav-link a {
+      color: $dark;
+    }
+  }
+}
+
+.footer-bottom {
+  color: $light;
+  background-color: #000;
+}
+
+// ----------------------------------------------------------------------------------------------------------------------------------
+
+
+@media screen and (min-width: 501px) and (max-width: 767px) {}
+
+
+
+@media (min-width: 768px) {
+  .hero__ct {
+    display: flex;
+    background-color: $dark;
+    height: 100dvh;
+    @include pseude-before();
+  
+    &::before {
+      background-image: url('/assets/img/Banner.png');
+      background-size: 100%;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  
+    &--caption {
+      width: 100%;
+      margin-top: auto;
+      padding: 1rem;
+      display: flex;
+      flex-direction: row;
+      gap: 1rem;
+      align-items: center;
+      color: $light;
+      & .title,
+      .text {
+        font-family: 'energyFont', sans-serif !important;
+        font-size: clamp(4rem, 6vw, 8rem);
+        letter-spacing: 2px;
+      }
+  
+    }
+  }
+}
