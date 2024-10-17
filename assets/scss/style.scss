@@ -6,28 +6,12 @@ $accentColor: #F8F8F8;
 $light: #fff;
 $dark: #111;
 
+.primary__color{
+  color: $primaryColor;
+}
+
 // ----------------------------------------------------------------------------------------------------------------------------------
 @mixin pseude-before() {
-  position: relative;
-  z-index: 1;
-
-  &::before {
-    content: ' ';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    bottom: 0;
-    z-index: -1;
-  }
-}
-
-@mixin zero-banner {
-  color: $dark;
-  background-color: $light;
-}
-
-@mixin beforeElement {
   position: relative;
   z-index: 1;
 
@@ -49,29 +33,51 @@ $dark: #111;
   /* Adicione outros formatos de arquivo, se necessário */
 }
 
+// .energyfont-title {
+//   font-family: 'energyFont', sans-serif !important;
+//   font-size: clamp(1.2rem, .5rem + 2vw, 3rem);
+//   letter-spacing: .3rem;
+// }
+
+// .staatliches-title {
+//   font-family: "Staatliches", sans-serif;
+//   font-weight: 400;
+//   font-style: normal;
+//   font-size: 1.6rem;
+// }
+
+// .energyfont-text {
+//   font-family: 'energyFont', sans-serif !important;
+//   font-size: clamp(1.2rem, .5rem + 2vw, 3rem);
+//   letter-spacing: .3rem;
+// }
+
+// .staatliches-text {
+//   font-family: "Staatliches", sans-serif;
+//   font-weight: 400;
+//   font-style: normal;
+//   font-size: 1.6rem;
+// }
+
 // ----------------------------------------------------------------------------------------------------------------------------------
-.button-49,
-.button-49:after {
+.button-49 {
+  width: 15rem;
+  padding: 1.2rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: .8rem;
-  width: 150px;
-  font-size: 1rem;
+  text-align: center;
   background: linear-gradient(45deg, transparent 5%, $primaryColor 5%);
-  border: 0;
   color: $dark;
-  letter-spacing: 3px;
-  box-shadow: 6px 0px 0px $light;
+  font-size: 1.4rem;
+  font-family: 'energyFont', sans-serif !important;
+  letter-spacing: 4px;
+  border: none;
   outline: transparent;
   user-select: none;
+  box-shadow: 6px 0px 0px $light;
   -webkit-user-select: none;
-  text-align: center;
-  white-space: nowrap;
-  font-family: 'energyFont', sans-serif !important;
-  letter-spacing: 2px;
 }
-
 
 .neon-title {
   font-family: 'energyFont', sans-serif !important;
@@ -165,18 +171,6 @@ $dark: #111;
     justify-content: center;
     align-items: center;
     color: $light;
-    & .title,
-    .text {
-      letter-spacing: 1px;
-      font-size: 1.8rem;
-      text-transform: uppercase;
-    }
-
-    & .text {
-      font-family: 'energyFont', sans-serif !important;
-      color: $primaryColor;
-      font-size: 3rem;
-    }
   }
 }
 
@@ -230,12 +224,23 @@ $dark: #111;
 
 .zero__ct {
   background-color: $dark;
+  height: 80svh;
+  @include pseude-before();
+
+  &::before {
+    background-image: url('/assets/img/zero-banner.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: bottom;
+  }
 
   &--caption {
     color: $light;
-    & .title{
+
+    & .title {
       font-size: 2rem;
       letter-spacing: .1rem;
+      text-transform: uppercase;
     }
   }
 
@@ -243,7 +248,7 @@ $dark: #111;
     width: fit-content;
     border-color: $light;
     font-family: 'energyFont', sans-serif !important;
-   font-size: 2rem;
+    font-size: 2rem;
   }
 }
 
@@ -258,14 +263,6 @@ $dark: #111;
   }
 
   &--caption {
-    & .title {
-      font-size: 3rem;
-    }
-
-    & .text {
-      font-size: 1.2rem;
-    }
-
     & .btn {
       width: auto;
       background: linear-gradient(45deg, transparent 5%, $dark 5%);
@@ -276,9 +273,11 @@ $dark: #111;
 
 .events__ct {
   background-color: $dark;
+
   & .card {
     overflow: clip;
-    & .card__img img{
+
+    & .card__img img {
       object-fit: cover;
     }
 
@@ -292,8 +291,6 @@ $dark: #111;
     }
   }
 }
-
-
 
 .news-container {
   background-color: $accentColor;
@@ -314,7 +311,6 @@ $dark: #111;
 
     & .card-caption {
       background-color: $light;
-      @include beforeElement();
 
       &::before {
         background: linear-gradient(to right, $secondaryColor 50%, $primaryColor 50%);
@@ -334,13 +330,10 @@ $dark: #111;
   background-color: $dark;
 
   & .title {
-    margin-bottom: 2rem;
-    font-size: 1.7rem;
-    color: $light;
+    padding: .5rem;
     background-color: $primaryColor;
     color: $dark;
     transform: skew(0deg, -5deg);
-    /* skew along X and Y axes */
   }
 
   & img {
@@ -425,19 +418,114 @@ footer {
 
 
 @media (min-width: 768px) {
+
+  .energyfont-title {
+    font-family: 'energyFont', sans-serif!important;
+    font-size: clamp(4rem, 1rem + 3vw, 5rem)!important;
+    letter-spacing: .3rem;
+  }
+  
+  .staatliches-title {
+    font-family: "Staatliches", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: clamp(4rem, 1.5rem + 2.5vw, 6rem)!important;
+  }
+  
+  .energyfont-text {
+    font-family: 'energyFont', sans-serif !important;
+    font-size: clamp(4rem, 1rem + 5vw, 8rem)!important;
+    letter-spacing: .3rem;
+  }
+  
+  .staatliches-text {
+    font-family: "Staatliches", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: clamp(1rem, 1rem + 2vw, 3rem)!important;
+  }
+
+  .header {
+    width: 100%;
+    position: fixed;
+    padding: 0rem;
+    z-index: 9;
+
+    &-inner {
+      position: relative;
+      width: 100%;
+      height: 50px;
+      border: .1rem solid $light;
+      border-radius: 0;
+      background-color: $dark;
+      transition: all .5s linear;
+      border: none;
+      box-shadow: rgba(255, 255, 255, 0.24) 0px 3px 8px;
+
+      &.active {
+        position: fixed;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        border-radius: unset;
+        background-color: $dark;
+        top: unset;
+        left: unset;
+
+        & .logo {
+          display: none;
+        }
+      }
+
+      & .logo {
+        & img {
+          width: 40px;
+        }
+      }
+
+      & .toggle {
+        cursor: pointer;
+        display: grid;
+        place-items: center;
+        width: 30px;
+        aspect-ratio: 1/1;
+        border-radius: 50%;
+        background-color: #353535;
+        font-size: 1rem;
+        color: #b2b2b2;
+        box-shadow: rgb(255, 255, 255) 0px 0px 2px 0px;
+        user-select: none;
+      }
+    }
+
+    & .navbar {
+      width: 100%;
+      height: 100svh;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: $secondaryColor;
+      overflow: clip;
+      transform: translateX(-100%);
+
+      &.active {
+        transform: translateX(0%);
+      }
+    }
+  }
+
   .hero__ct {
     display: flex;
     background-color: $dark;
-    height: 100dvh;
     @include pseude-before();
-  
+
     &::before {
-      background-image: url('/assets/img/Banner.png');
-      background-size: 100%;
+      background-image: url('/assets/img/Banner-PNG.png');
+      background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
     }
-  
+
     &--caption {
       width: 100%;
       margin-top: auto;
@@ -447,13 +535,42 @@ footer {
       gap: 1rem;
       align-items: center;
       color: $light;
-      & .title,
-      .text {
-        font-family: 'energyFont', sans-serif !important;
-        font-size: clamp(4rem, 6vw, 8rem);
-        letter-spacing: 2px;
+      & h2{
+        font-style: italic;
       }
-  
+    }
+  }
+
+  .zero__ct {
+    padding: 4rem;
+    background-color: $dark;
+    height: 80svh;
+    @include pseude-before();
+
+    &::before {
+      background-image: url('/assets/img/zero-banner.png');
+      background-repeat: no-repeat;
+      background-size: 30%;
+      background-position: center bottom;
+    }
+
+    &--caption {
+      color: $light;
+
+      & .title {
+        font-size: 4rem;
+        letter-spacing: .1rem;
+        text-transform: uppercase;
+      }
+    }
+  }
+
+  .invite__ct {
+    padding: 4rem;
+    background-color: $primaryColor;
+    height: auto;
+    &::before {
+      display: none;
     }
   }
 }
