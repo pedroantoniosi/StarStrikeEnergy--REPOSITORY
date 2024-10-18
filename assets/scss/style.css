@@ -1,6 +1,5 @@
 @charset "UTF-8";
 @import './reset/reset.css';
-@import './swiper/swiper.css';
 .primary__color {
   color: #fffc00;
 }
@@ -10,7 +9,24 @@
   src: url("/assets/fonts/Neon-Energy-Italic.ttf") format("truetype"), url("/assets/fonts/Neon-Energy.otf") format("opentype");
   /* Adicione outros formatos de arquivo, se necessário */
 }
+.staatliches-title {
+  font-family: "Staatliches", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.6rem;
+}
+
+.staatliches-text {
+  font-family: "Staatliches", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.6rem;
+}
+
 .button-49 {
+  cursor: pointer;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
   width: 15rem;
   padding: 1.2rem;
   display: flex;
@@ -21,18 +37,29 @@
   color: #111;
   font-size: 1.4rem;
   font-family: "energyFont", sans-serif !important;
-  letter-spacing: 4px;
+  letter-spacing: 0.2rem;
   border: none;
   outline: transparent;
   -moz-user-select: none;
        user-select: none;
-  box-shadow: 6px 0px 0px #fff;
   -webkit-user-select: none;
+  position: relative;
+  z-index: 1;
 }
-
-.neon-title {
-  font-family: "energyFont", sans-serif !important;
-  letter-spacing: 2px;
+.button-49::before {
+  content: " ";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  bottom: 0;
+  z-index: -1;
+}
+.button-49::before {
+  width: 6px;
+  background-color: #fff;
+  right: 0;
+  left: unset;
 }
 
 .header {
@@ -203,28 +230,16 @@
 }
 
 .invite__ct {
-  background-color: #111;
+  background-color: #fffc00;
   height: 80svh;
-  position: relative;
-  z-index: 1;
-}
-.invite__ct::before {
-  content: " ";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  bottom: 0;
-  z-index: -1;
-}
-.invite__ct::before {
-  background-image: url("/assets/img/subscribe-background.png");
-  background-size: cover;
 }
 .invite__ct--caption .btn {
-  width: auto;
   background: linear-gradient(45deg, transparent 5%, #111 5%);
   color: #fffc00;
+}
+.invite__ct--caption .btn:hover {
+  background: linear-gradient(45deg, transparent 5%, #fff 5%);
+  color: #111;
 }
 
 .events__ct {
@@ -253,34 +268,6 @@
   left: 0;
   bottom: 0;
   z-index: -1;
-}
-
-.news-container {
-  background-color: #F8F8F8;
-}
-.news-container .slider-wrapper {
-  padding: 1rem;
-}
-.news-container .card {
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
-  border-radius: 0.5rem;
-  overflow: hidden;
-}
-.news-container .card img {
-  -o-object-fit: cover;
-     object-fit: cover;
-  aspect-ratio: 4/3;
-}
-.news-container .card .card-caption {
-  background-color: #fff;
-}
-.news-container .card .card-caption::before {
-  background: linear-gradient(to right, #2323ff 50%, #fffc00 50%);
-  height: 5px;
-  width: 100%;
-  top: 0;
-  left: 50%;
-  transform: translate(-50%, 0%);
 }
 
 .social-container {
@@ -378,7 +365,7 @@ footer .wrapper .nav-link a {
     font-family: "Staatliches", sans-serif;
     font-weight: 400;
     font-style: normal;
-    font-size: clamp(1rem, 1rem + 2vw, 3rem) !important;
+    font-size: clamp(1rem, 1rem + 2vw, 3rem);
   }
   .header {
     width: 100%;
@@ -506,11 +493,98 @@ footer .wrapper .nav-link a {
     text-transform: uppercase;
   }
   .invite__ct {
-    padding: 4rem;
-    background-color: #fffc00;
     height: auto;
+    padding: 4rem;
+    position: relative;
+    z-index: 1;
   }
   .invite__ct::before {
-    display: none;
+    content: " ";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+  }
+  .events__ct {
+    padding: 4rem;
+    background-color: #111;
+  }
+  .events__ct .card {
+    overflow: clip;
+  }
+  .events__ct .card .card__img img {
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  .events__ct .card .card__caption {
+    padding: 2rem 1rem;
+    position: relative;
+    position: relative;
+    z-index: 1;
+    background-color: #111;
+    color: #fff;
+  }
+  .events__ct .card .card__caption::before {
+    content: " ";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+  }
+  .news__container {
+    background-color: #111;
+  }
+  .news__container .mySwiper {
+    width: 100%;
+    padding: 4rem;
+    display: grid !important;
+  }
+  .news__container .mySwiper .slider-wrapper {
+    width: 100%;
+    display: grid !important;
+    height: auto;
+  }
+  .news__container .mySwiper .slider-wrapper .card {
+    flex: 1;
+    border: 0.4rem solid #fffc00;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    border-radius: 0.5rem;
+    overflow: hidden;
+  }
+  .news__container .mySwiper .slider-wrapper .card__img {
+    display: flex;
+    height: 350px;
+    overflow: hidden;
+  }
+  .news__container .mySwiper .slider-wrapper .card__img img {
+    width: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  .news__container .mySwiper .slider-wrapper .card__caption {
+    padding: 1rem;
+    color: #fff;
+    font-family: "Staatliches", sans-serif;
+  }
+  .news__container .mySwiper .slider-wrapper .card__caption--title {
+    font-size: clamp(1rem, 0.8rem + 1vw, 3rem);
+  }
+  .social__ct {
+    position: relative;
+    height: 90svh;
+    overflow: hidden;
+  }
+  .social__ct picture {
+    position: absolute;
+  }
+  .social__ct picture, .social__ct source, .social__ct img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
   }
 }/*# sourceMappingURL=style.css.map */

@@ -58,8 +58,8 @@
 
     </div>
 
-    <div class="invite__ct row-auto">
-        <div class="invite__ct--caption col gap-4">
+    <div class="invite__ct row-md">
+        <div class="invite__ct--caption col gap-4 overflow-hidden">
             <h2 class="title text-center energyfont-title">Energy a Friend</h2>
             <p class="staatliches-text text-center">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Id quaerat nam modi fugiat commodi mollitia
@@ -67,48 +67,56 @@
             </p>
             <a class="btn button-49 m-auto text-center neon-title">Invite a Friend</a>
         </div>
-        <div class="invite__ct--img row">
-            <img src="./assets/img/friends.jpg" alt="">
+        <div class="invite__ct--img row overflow-hidden">
+            <img src="./assets/img/friends.png" alt="">
         </div>
     </div>
 
     <div class="events__ct ">
-        <div class="card row-auto">
+        <div class="card row-md">
             <div class="card__img row">
-                <img src="./assets/img/drinking.jpg" alt="">
+                <img src="./assets/img/drinking.png" alt="">
             </div>
-            <div class="card__caption col align-center justify-center gap-2">
+            <div class="card__caption col align-center justify-center gap-2 overflow-hidden">
                 <h2 class="title text-center staatliches-title">Check out the upcoming events in your location</h2>
                 <a class="button-49 m-auto text-center">Learn More</a>
             </div>
         </div>
     </div>
 
-    <div class="news-container p-1">
-        <swiper-container id="newsSlider" class="mySwiper" space-between="0" slides-per-view="3" loop="true">
+    <div class="news__container">
+        <swiper-container id="newsSlider" class="mySwiper" space-between="20" slides-per-view="3" loop="true">
             <swiper-slide class="slider-wrapper">
-                <div class="card col">
-                    <div class="row"><img src="./assets/img/news-1.png" alt=""></div>
-                    <div class="card-caption col gap-1 p-1">
-                        <h2 class="title ">Experience the adrenaline to race with NGM eSports</h2>
-                        <p>"Team of passionate speedsters, united by the love of racing.</p>
-                        <div class="row justify-between">
-                            <p>eSports</p>
-                            <span>23/05/2024</span>
+                <div class="card">
+                    <div class="card__img">
+                        <img src="./assets/img/news-1.webp" alt="">
+                    </div>
+                    <div class="card__caption">
+                        <h2 class="card__caption--title staatliches-text  py-1">
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum, expedita.
+                        </h2>
+                        <p class="card__caption--text"></p>
+                        <div class="card__caption--misc row justify-between align-center">
+                            <span class="misc__tag">TAG</span>
+                            <span class="misc__date">17/05/2024</span>
                         </div>
                     </div>
                 </div>
             </swiper-slide>
 
             <swiper-slide class="slider-wrapper">
-                <div class="card col">
-                    <div class="row"><img src="./assets/img/news-2.jpg" alt=""></div>
-                    <div class="card-caption col gap-1 p-1">
-                        <h2 class="title">Experience the adrenaline to race with NGM eSports</h2>
-                        <p>"Team of passionate speedsters, united by the love of racing.</p>
-                        <div class="row justify-between">
-                            <p>Sports</p>
-                            <span>23/05/2024</span>
+                <div class="card">
+                    <div class="card__img">
+                        <img src="./assets/img/news-2.webp" alt="">
+                    </div>
+                    <div class="card__caption">
+                        <h2 class="card__caption--title staatliches-text  py-1">
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum, expedita.
+                        </h2>
+                        <p class="card__caption--text"></p>
+                        <div class="card__caption--misc row justify-between align-center">
+                            <span class="misc__tag">TAG</span>
+                            <span class="misc__date">17/05/2024</span>
                         </div>
                     </div>
                 </div>
@@ -116,14 +124,18 @@
 
 
             <swiper-slide class="slider-wrapper">
-                <div class="card col">
-                    <div class="row"><img src="./assets/img/news-3.png" alt=""></div>
-                    <div class="card-caption col gap-1 p-1">
-                        <h2 class="title">Experience the adrenaline to race with NGM eSports</h2>
-                        <p>"Team of passionate speedsters, united by the love of racing.</p>
-                        <div class="row justify-between">
-                            <p>Racing</p>
-                            <span>23/05/2024</span>
+                <div class="card">
+                    <div class="card__img">
+                        <img src="./assets/img/news-3.webp" alt="">
+                    </div>
+                    <div class="card__caption">
+                        <h2 class="card__caption--title staatliches-text  py-1">
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum, expedita.
+                        </h2>
+                        <p class="card__caption--text"></p>
+                        <div class="card__caption--misc row justify-between align-center">
+                            <span class="misc__tag">TAG</span>
+                            <span class="misc__date">17/05/2024</span>
                         </div>
                     </div>
                 </div>
@@ -133,21 +145,30 @@
         </swiper-container>
     </div>
 
-    <div class="social-container caption col p-1">
-            <h2 class="title text-center energyfont-regular my-3">#FollowStarStrike</h2>
-        <div class="img-wrapper">
-            <img src="./assets/img/social-girl.webp" alt="">
+    <div class="social__ct">
+        <h2 class="title text-center staatliches-title">#FollowStarStrike</h2>
+        <div class="social__ct--img">
+            <picture>
+                <!-- Definir uma imagem para tamanhos de tela maiores que 768px -->
+                <source srcset="./assets/img/social.webp" media="(min-width: 768px)">
+
+                <!-- Definir uma imagem para telas médias (768px até 1023px) -->
+                <source srcset="./assets/img/social-girl2.webp" media="(max-width: 767px)">
+
+                <!-- Fallback: usado se nenhuma das condições anteriores for atendida -->
+                <img src="./assets/img/social-girl.webp" alt="Imagem responsiva">
+            </picture>
         </div>
-        <ul class="social-wrapper row justify-center py-1">
+        <!-- <ul class="social-wrapper row justify-center py-1">
             <li class="nav-link flex-center"><a href=""><i class="bi bi-facebook"></i></a></li>
             <li class="nav-link flex-center"><a href=""><i class="bi bi-instagram"></i></a></li>
             <li class="nav-link flex-center"><a href=""><i class="bi bi-twitter-x"></i></a></li>
             <li class="nav-link flex-center"><a href=""><i class="bi bi-youtube"></i></a></li>
             <li class="nav-link flex-center"><a href=""><i class="bi bi-spotify"></i></a></li>
-        </ul>
+        </ul> -->
     </div>
 
-    <footer class="col justify-center px-1 py-2">
+    <footer class="col justify-center px-1 p-4">
         <nav class="wrapper grid-4-md gap-2 px-1 py-2">
             <div id="scrollToTopBtn" class="btn-up align-self-center">
                 <i class="bi bi-chevron-double-up"></i>
@@ -180,7 +201,13 @@
                 </ul>
             </div>
 
-
+            <div class="caption col">
+                <h3><strong class="mb-05">Help</strong></h3>
+                <ul>
+                    <li class="nav-link"><a href="">FAQ's</a></li>
+                    <li class="nav-link"><a href="">Contact Us</a></li>
+                </ul>
+            </div>
         </nav>
     </footer>
 
